@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>This is where a book table creation take place</title>
+        <style>
+            table, th, tr, td {border: 1px solid black;}
+        </style>
+    </head>
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="border-right-style: 5px;border-top-width: 30px;border-top-style: solid;">
+        <h1 class="h2">Dashboard</h1>
+     
+    </div>
+    <div>
+    
+            <a>The amount of {{ product_name }} to sell:</a>
+            <form method="POST" action="{{ url_for('sell_product', product_name=product_name)}}">                
+                {{ form.hidden_tag() }}
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                <a>{{ field }}</a>
+                {% endfor %}
+                <input type="submit" value="Sell product">
+            </form>
+
+         
+    </div>
+</html>
+{% endblock %}
