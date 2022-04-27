@@ -15,8 +15,12 @@
         <h1 class="h2">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                <form action="/export" method="GET">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">Export product list ot .csv</button>
+                </form>
+                <form action="/import" method="GET">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">Import product list from .csv</button>
+                </form>
             </div>     
         </div>
     </div>
@@ -41,7 +45,6 @@
                 <td>{{ product.unit_price }}</td>
                 <td>
                     <form method="POST" action="{{ url_for('sell_product', product_name=product.name)}}">
-                        <input type="hidden" name="product_quantity" value="{{ product.quantity }}">
 
                             <button type="submit">Sell product</button>
                     </form>
@@ -51,7 +54,7 @@
 
             {% endfor %}
 
-            <form method="POST" action="/">
+            <form method="POST" action="/add">
                 {{ form.hidden_tag() }}
                 <tr>
                     <td></td>

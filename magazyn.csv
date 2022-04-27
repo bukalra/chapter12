@@ -4,3 +4,5 @@ id,name,quantity,unit,unit_price
 3,Sugar,1,kg,33
 4,Flour,12,kg,23
 5,Juice,5,ml,100
+6,Tea,5,l,111
+7,Coffe,23,ml,33

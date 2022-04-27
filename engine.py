@@ -19,7 +19,7 @@ sold_items = []
 #func that exports shop resouces status to the .csv file
 def export_file_to_csv():
     with open('magazyn.csv', 'w', newline='') as csvfile:
-        fieldnames = ['name','quantity','unit','unit_price']
+        fieldnames = ['id','name','quantity','unit','unit_price']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         
@@ -96,8 +96,6 @@ def sell_item(name, quantity_to_sell):
                         quantity_to_sell = quantity_to_sell + product.quantity
                         product.quantity = 0
                         sold_items_summary(id, name, quantity_to_sell,unit = product.unit, unit_price = product.unit_price)
-
-                        get_items()
                 else:
                     print('You can choose another item or different quantity. ')
 
@@ -128,7 +126,6 @@ def to_do(action):
     else:
         return False
 
-products = import_items_from_csv()
 
 """ #main program logic
 while to_do(action) != True:

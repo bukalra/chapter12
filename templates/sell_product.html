@@ -18,7 +18,7 @@
     <div>
     
             <a>The amount of {{ product_name }} to sell:</a>
-            <form method="POST" action="{{ url_for('sell_product', product_name=product_name)}}">                
+            <form method="POST" action="{{ url_for('update_quantity', product_name=product_name)}}">                
                 {{ form.hidden_tag() }}
                 {% for field in form if field.widget.input_type != 'hidden' %}
                 <a>{{ field }}</a>
